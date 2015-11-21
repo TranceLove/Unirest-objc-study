@@ -26,9 +26,13 @@
     [super tearDown];
 }
 
+- (NSString *) createUrl:(NSString *)suffix{
+    return [NSString stringWithFormat:@"http://10.0.2.15:9090%@", suffix];
+}
+
 - (void)testSimpleGet {
     UNIHTTPStringResponse *response = [[UNIRest get:^(UNISimpleRequest *request){
-        [request setUrl:@"http://10.0.2.15:9090/test"];
+        [request setUrl:[self createUrl:@"/test"]];
     }]asString];
     XCTAssertEqual(response.code, 200);
     XCTAssertEqualObjects(response.body, @"GET /test OK");
@@ -36,12 +40,21 @@
 }
 
 - (void)testAsyncSimpleGet {
+    
+    XCTestExpectation *expect = [self expectationWithDescription:@"Async test expectations"];
+    
     [[UNIRest get:^(UNISimpleRequest *request){
-        [request setUrl:@"http://10.0.2.15:9090/test"];
+        [request setUrl:[self createUrl:@"/test"]];
     }]asStringAsync:^(UNIHTTPStringResponse *response, NSError *error) {
         XCTAssertEqual(response.code, 200);
         XCTAssertNotEqual(response.code, 515);
         XCTAssertEqualObjects(response.body, @"GET /test OK");
+        [expect fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error){
+        if(error)
+            NSLog(@"Timed out with error: %@", error);
     }];
 }
 
