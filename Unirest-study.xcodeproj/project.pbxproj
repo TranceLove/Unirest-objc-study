@@ -14,6 +14,8 @@
 		1443D72C1C0005C0003D8A5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1443D72B1C0005C0003D8A5B /* Images.xcassets */; };
 		1443D72F1C0005C0003D8A5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1443D72D1C0005C0003D8A5B /* LaunchScreen.xib */; };
 		1443D73B1C0005C0003D8A5B /* Unirest_studyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443D73A1C0005C0003D8A5B /* Unirest_studyTests.m */; };
+		14F0F0F71C001D0B00E0741F /* server.js in Resources */ = {isa = PBXBuildFile; fileRef = 14F0F0F61C001D0B00E0741F /* server.js */; };
+		14F0F0F91C001D7100E0741F /* package.json in Resources */ = {isa = PBXBuildFile; fileRef = 14F0F0F81C001D7100E0741F /* package.json */; };
 		D12E4B7FD4335CF990B1E3DE /* libPods-Unirest-studyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E35FF9E55B6DB26A3E9BFCA8 /* libPods-Unirest-studyTests.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		1443D7341C0005C0003D8A5B /* Unirest-studyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unirest-studyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1443D7391C0005C0003D8A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1443D73A1C0005C0003D8A5B /* Unirest_studyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unirest_studyTests.m; sourceTree = "<group>"; };
+		14F0F0F61C001D0B00E0741F /* server.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = server.js; path = server/server.js; sourceTree = "<group>"; };
+		14F0F0F81C001D7100E0741F /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = server/package.json; sourceTree = "<group>"; };
 		2FE485ADFB5749870E315458 /* Pods-Unirest-studyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unirest-studyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unirest-studyTests/Pods-Unirest-studyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3DB2232574C57C955A35E4A3 /* Pods-Unirest-studyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unirest-studyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unirest-studyTests/Pods-Unirest-studyTests.release.xcconfig"; sourceTree = "<group>"; };
 		E35FF9E55B6DB26A3E9BFCA8 /* libPods-Unirest-studyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Unirest-studyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,7 @@
 		1443D7121C0005C0003D8A5B = {
 			isa = PBXGroup;
 			children = (
+				14F0F0F51C001CDB00E0741F /* node.js test server */,
 				1443D71D1C0005C0003D8A5B /* Unirest-study */,
 				1443D7371C0005C0003D8A5B /* Unirest-studyTests */,
 				1443D71C1C0005C0003D8A5B /* Products */,
@@ -124,6 +129,15 @@
 				1443D7391C0005C0003D8A5B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14F0F0F51C001CDB00E0741F /* node.js test server */ = {
+			isa = PBXGroup;
+			children = (
+				14F0F0F61C001D0B00E0741F /* server.js */,
+				14F0F0F81C001D7100E0741F /* package.json */,
+			);
+			name = "node.js test server";
 			sourceTree = "<group>";
 		};
 		1F1161052CD8C9CD57168EA0 /* Frameworks */ = {
@@ -229,6 +243,8 @@
 				1443D72A1C0005C0003D8A5B /* Main.storyboard in Resources */,
 				1443D72F1C0005C0003D8A5B /* LaunchScreen.xib in Resources */,
 				1443D72C1C0005C0003D8A5B /* Images.xcassets in Resources */,
+				14F0F0F71C001D0B00E0741F /* server.js in Resources */,
+				14F0F0F91C001D7100E0741F /* package.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
