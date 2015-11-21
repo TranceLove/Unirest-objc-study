@@ -14,6 +14,7 @@
 		1443D72C1C0005C0003D8A5B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1443D72B1C0005C0003D8A5B /* Images.xcassets */; };
 		1443D72F1C0005C0003D8A5B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1443D72D1C0005C0003D8A5B /* LaunchScreen.xib */; };
 		1443D73B1C0005C0003D8A5B /* Unirest_studyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443D73A1C0005C0003D8A5B /* Unirest_studyTests.m */; };
+		D12E4B7FD4335CF990B1E3DE /* libPods-Unirest-studyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E35FF9E55B6DB26A3E9BFCA8 /* libPods-Unirest-studyTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		1443D7341C0005C0003D8A5B /* Unirest-studyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unirest-studyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1443D7391C0005C0003D8A5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1443D73A1C0005C0003D8A5B /* Unirest_studyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Unirest_studyTests.m; sourceTree = "<group>"; };
+		2FE485ADFB5749870E315458 /* Pods-Unirest-studyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unirest-studyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unirest-studyTests/Pods-Unirest-studyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3DB2232574C57C955A35E4A3 /* Pods-Unirest-studyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unirest-studyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unirest-studyTests/Pods-Unirest-studyTests.release.xcconfig"; sourceTree = "<group>"; };
+		E35FF9E55B6DB26A3E9BFCA8 /* libPods-Unirest-studyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Unirest-studyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D12E4B7FD4335CF990B1E3DE /* libPods-Unirest-studyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				1443D71D1C0005C0003D8A5B /* Unirest-study */,
 				1443D7371C0005C0003D8A5B /* Unirest-studyTests */,
 				1443D71C1C0005C0003D8A5B /* Products */,
+				B58B01E13731C8F8B730D223 /* Pods */,
+				1F1161052CD8C9CD57168EA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1F1161052CD8C9CD57168EA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E35FF9E55B6DB26A3E9BFCA8 /* libPods-Unirest-studyTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B58B01E13731C8F8B730D223 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2FE485ADFB5749870E315458 /* Pods-Unirest-studyTests.debug.xcconfig */,
+				3DB2232574C57C955A35E4A3 /* Pods-Unirest-studyTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1443D7411C0005C0003D8A5B /* Build configuration list for PBXNativeTarget "Unirest-studyTests" */;
 			buildPhases = (
+				5CC47DA506EDB05CAA9572D0 /* Check Pods Manifest.lock */,
 				1443D7301C0005C0003D8A5B /* Sources */,
 				1443D7311C0005C0003D8A5B /* Frameworks */,
 				1443D7321C0005C0003D8A5B /* Resources */,
+				27732A03CE9A17C596CD0B9B /* Embed Pods Frameworks */,
+				00B7076FA75EDC8A581DFD4E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +240,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00B7076FA75EDC8A581DFD4E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unirest-studyTests/Pods-Unirest-studyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		27732A03CE9A17C596CD0B9B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unirest-studyTests/Pods-Unirest-studyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CC47DA506EDB05CAA9572D0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1443D7171C0005C0003D8A5B /* Sources */ = {
@@ -350,6 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Unirest-study/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Unirest-study/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -367,6 +444,7 @@
 		};
 		1443D7421C0005C0003D8A5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FE485ADFB5749870E315458 /* Pods-Unirest-studyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -386,6 +464,7 @@
 		};
 		1443D7431C0005C0003D8A5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DB2232574C57C955A35E4A3 /* Pods-Unirest-studyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -418,6 +497,7 @@
 				1443D7401C0005C0003D8A5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1443D7411C0005C0003D8A5B /* Build configuration list for PBXNativeTarget "Unirest-studyTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +506,7 @@
 				1443D7431C0005C0003D8A5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
