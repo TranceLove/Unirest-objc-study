@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <Unirest.h>
 
 @interface Unirest_studyTests : XCTestCase
 
@@ -25,16 +26,30 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testSimpleGet {
+    UNIHTTPStringResponse *response = [[UNIRest get:^(UNISimpleRequest *request){
+        [request setUrl:@"http://10.0.2.15:9090/test"];
+    }]asString];
+    XCTAssertEqual(response.code, 200);
+    XCTAssertEqualObjects(response.body, @"GET /test OK");
+    
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
+- (void)testAsyncSimpleGet {
+    [[UNIRest get:^(UNISimpleRequest *request){
+        [request setUrl:@"http://10.0.2.15:9090/test"];
+    }]asStringAsync:^(UNIHTTPStringResponse *response, NSError *error) {
+        XCTAssertEqual(response.code, 200);
+        XCTAssertNotEqual(response.code, 515);
+        XCTAssertEqualObjects(response.body, @"GET /test OK");
     }];
 }
+
+//- (void)testPerformanceExample {
+//    // This is an example of a performance test case.
+//    [self measureBlock:^{
+//        // Put the code you want to measure the time of here.
+//    }];
+//}
 
 @end
