@@ -62,6 +62,55 @@
     }];
 }
 
+- (void)testSlowCallTimeout {
+    [UNIRest timeout:1];
+    
+    NSError *error = nil;
+    
+    UNIHTTPStringResponse *response = [[UNIRest get:^(UNISimpleRequest *request){
+        [request setUrl:[self createUrl:@"/slow-calls"]];
+    }]asString:&error];
+    
+    XCTAssertNotNil(error);
+    XCTAssertNil(response);
+}
+
+
+- (void)testSlowCallWait {
+    [UNIRest timeout:60];
+    
+    NSError *error = nil;
+    
+    UNIHTTPStringResponse *response = [[UNIRest get:^(UNISimpleRequest *request){
+        [request setUrl:[self createUrl:@"/slow-calls"]];
+    }]asString:&error];
+    
+    XCTAssertNil(error);
+    XCTAssertNotNil(response);
+    XCTAssertEqual(response.code, 200);
+    XCTAssertEqualObjects(response.body, @"Slow calls worth the wait");
+}
+
+- (void)testCancelCall {
+    __block BOOL hasCalledback = NO;
+    
+    UNIUrlConnection *connection = [[UNIRest get:^(UNISimpleRequest *request){
+        [request setUrl:[self createUrl:@"/cancel-or-fail"]];
+    }]asStringAsync:^(UNIHTTPStringResponse *response, NSError *error){
+        hasCalledback = YES;
+    }];
+    
+    [connection cancel];
+    
+    NSDate *loopUntil = [NSDate dateWithTimeIntervalSinceNow:5];
+    while (hasCalledback == NO && [loopUntil timeIntervalSinceNow] > 0) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:loopUntil];
+    }
+    
+    XCTAssertFalse(hasCalledback);
+}
+
 //- (void)testPerformanceExample {
 //    // This is an example of a performance test case.
 //    [self measureBlock:^{
