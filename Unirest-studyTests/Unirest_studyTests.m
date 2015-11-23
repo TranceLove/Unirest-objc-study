@@ -18,16 +18,20 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    // Put setup code here. This method is called before the invocation of each test method in the class
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
 }
 
 - (NSString *) createUrl:(NSString *)suffix{
-    return [NSString stringWithFormat:@"http://10.0.2.15:9090%@", suffix];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSString *serverAddress = [bundle objectForInfoDictionaryKey:@"server.ip"];
+    int serverPort = (int)[[bundle objectForInfoDictionaryKey:@"server.port"] integerValue];
+    NSString *retval = [NSString stringWithFormat:@"http://%@:%d%@", serverAddress, serverPort, suffix];
+    NSLog(@"%@", retval);
+    return retval;
 }
 
 - (void)testSimpleGet {
