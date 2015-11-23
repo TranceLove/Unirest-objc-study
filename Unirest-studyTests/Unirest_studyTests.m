@@ -111,6 +111,19 @@
     XCTAssertFalse(hasCalledback);
 }
 
+-(void) testPostForm {
+    
+    NSDictionary *parameters = @{@"param1": @"Hello world"};
+    
+    UNIHTTPStringResponse *response = [[UNIRest post:^(UNISimpleRequest *request){
+        [request setUrl:[self createUrl:@"/test-form"]];
+        [request setParameters:parameters];
+    }]asString];
+    
+    XCTAssertEqual(response.code, 202);
+    XCTAssertEqualObjects(response.body, @"OK");
+}
+
 //- (void)testPerformanceExample {
 //    // This is an example of a performance test case.
 //    [self measureBlock:^{

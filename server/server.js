@@ -10,6 +10,7 @@ const timeout = require("connect-timeout");
 
 let app = express();
 app.use(morgan("combined"));
+app.use(bodyParser.urlencoded({}));
 
 app.get("/test", function(req, res){
     res.status(200).send("GET /test OK");
@@ -38,6 +39,14 @@ app.get("/cancel-or-fail", function(req, res){
     setTimeout(function(){
         res.status(400).send("You should not wait for error");
     }, 10000);
+});
+
+app.post("/test-form", function(req, res){
+    var form = req.body;
+    if(req.body.param1 && req.body.param1 === "Hello world")
+         res.status(202).send("OK");
+    else
+         res.status(400).send("No form parameter supplied")
 });
 
 let server = http.createServer(app);
